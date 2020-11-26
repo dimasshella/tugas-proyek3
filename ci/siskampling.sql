@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 17 Nov 2020 pada 03.57
--- Versi server: 10.4.14-MariaDB
--- Versi PHP: 7.2.34
+-- Waktu pembuatan: 26 Nov 2020 pada 10.17
+-- Versi server: 10.1.37-MariaDB
+-- Versi PHP: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -42,6 +43,19 @@ CREATE TABLE `tb_jadwal` (
 INSERT INTO `tb_jadwal` (`id`, `nama`, `hari`, `nama_desa`, `tgl_jaga`) VALUES
 (1, 'pak tejo', 'senin', 'senggani', '2020-11-17');
 
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_user`
+--
+
+CREATE TABLE `tb_user` (
+  `id_user` int(10) NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `password` varchar(40) NOT NULL,
+  `level` enum('user','admin') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Indexes for dumped tables
 --
@@ -53,6 +67,12 @@ ALTER TABLE `tb_jadwal`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `tb_user`
+--
+ALTER TABLE `tb_user`
+  ADD PRIMARY KEY (`id_user`);
+
+--
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
@@ -61,6 +81,12 @@ ALTER TABLE `tb_jadwal`
 --
 ALTER TABLE `tb_jadwal`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_user`
+--
+ALTER TABLE `tb_user`
+  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
